@@ -9,14 +9,8 @@ jobs:
     uses: relaycorp/shared-workflows/.github/workflows/tfmodule-ci.yml@main
     with:
       terraform_version: 1.5.3
-  ci-example:
-    uses: relaycorp/shared-workflows/.github/workflows/tfmodule-ci.yml@main
-    with:
-      path: examples/pong
-      terraform_version: 1.5.3
 
   release:
     needs:
       - ci-module
-      - ci-example
     uses: relaycorp/shared-workflows/.github/workflows/tfmodule-release.yml@main
