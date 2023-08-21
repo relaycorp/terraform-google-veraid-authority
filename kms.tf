@@ -19,3 +19,15 @@ resource "google_project_iam_member" "kms_admin" {
     expression = "resource.name.startsWith(\"${google_kms_key_ring.main.id}\")"
   }
 }
+
+resource "google_project_iam_member" "kms_operator" {
+  project = var.project_id
+
+  role   = "roles/cloudkms.cryptoOperator"
+  member = "serviceAccount:${google_service_account.main.email}"
+
+  condition {
+    title      = "Limit app access to KMS key ring"
+    expression = "resource.name.startsWith(\"${google_kms_key_ring.main.id}\")"
+  }
+}

@@ -16,5 +16,12 @@ variable "mongodbatlas_private_key" {
   description = "MongoDB Atlas private key"
   sensitive   = true
 }
-
 variable "mongodbatlas_project_id" {}
+
+variable "api_auth_audience" {
+  description = "The OAuth2 audience"
+  type        = string
+}
+variable "superadmin_email_address" {
+  description = "The email address of the superadmin"
+}
