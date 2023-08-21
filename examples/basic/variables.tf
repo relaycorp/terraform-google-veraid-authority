@@ -4,6 +4,9 @@ variable "google_project_id" {
 variable "google_credentials_path" {
   description = "Path to Google credentials file"
 }
+variable "google_region" {
+  description = "Google region"
+}
 
 variable "mongodbatlas_public_key" {
   description = "MongoDB Atlas public key"
