@@ -11,7 +11,7 @@ module "authority" {
   mongodb_user     = mongodbatlas_database_user.main.username
   mongodb_password = random_password.mongodb_user_password.result
 
-  api_auth_audience = var.api_auth_audience
+  api_auth_audience        = var.api_auth_audience
   superadmin_email_address = var.superadmin_email_address
 
   depends_on = [time_sleep.wait_for_services]
