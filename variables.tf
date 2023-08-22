@@ -142,7 +142,7 @@ variable "queue_cpu_limit" {
 # ====== Awala
 
 variable "support_awala" {
-    description = "Whether to enable Awala support"
-    type        = bool
-    default     = false
+  description = "Whether to enable Awala support"
+  type        = bool
+  default     = false
 }
