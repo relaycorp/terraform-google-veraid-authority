@@ -115,3 +115,34 @@ variable "api_cpu_limit" {
   type        = number
   default     = 2
 }
+
+# ====== Background queue
+
+variable "queue_max_instance_request_concurrency" {
+  description = "The maximum number of concurrent requests per instance (for the queue server)"
+  type        = number
+  default     = 80
+}
+variable "queue_min_instance_count" {
+  description = "The minimum number of instances (for the queue server)"
+  type        = number
+  default     = 1
+}
+variable "queue_max_instance_count" {
+  description = "The maximum number of instances (for the queue server)"
+  type        = number
+  default     = 3
+}
+variable "queue_cpu_limit" {
+  description = "The maximum vCPUs allocated to each instance of the queue server"
+  type        = number
+  default     = 2
+}
+
+# ====== Awala
+
+variable "support_awala" {
+    description = "Whether to enable Awala support"
+    type        = bool
+    default     = false
+}
