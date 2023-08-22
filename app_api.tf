@@ -1,5 +1,5 @@
 resource "google_cloud_run_v2_service" "api" {
-  name     = "authority-api-${var.backend_name}"
+  name     = "authority-api-${var.instance_name}"
   location = var.region
   ingress  = "INGRESS_TRAFFIC_ALL"
 

@@ -1,7 +1,7 @@
 module "authority" {
   source = "../.."
 
-  backend_name = "test"
+  instance_name = "test"
 
   project_id = var.google_project_id
   region     = var.google_region

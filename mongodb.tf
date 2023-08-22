@@ -1,7 +1,7 @@
 resource "google_secret_manager_secret" "mongodb_password" {
   project = var.project_id
 
-  secret_id = "authority-${var.backend_name}_mongodb-password"
+  secret_id = "authority-${var.instance_name}_mongodb-password"
 
   replication {
     user_managed {

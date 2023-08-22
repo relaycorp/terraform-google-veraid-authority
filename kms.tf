@@ -3,7 +3,7 @@ resource "google_kms_key_ring" "main" {
 
   # Key rings can be deleted from the Terraform state but not GCP, so let's add a suffix in case
   # we need to recreate it.
-  name = "authority-${var.backend_name}-${random_id.unique_suffix.hex}"
+  name = "authority-${var.instance_name}-${random_id.unique_suffix.hex}"
 
   location = var.region
 }
