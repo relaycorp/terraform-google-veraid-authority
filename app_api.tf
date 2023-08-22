@@ -111,10 +111,9 @@ resource "google_cloud_run_v2_service" "api" {
       }
 
       startup_probe {
-        initial_delay_seconds = 3
-        failure_threshold     = 3
-        period_seconds        = 10
-        timeout_seconds       = 3
+        failure_threshold = 3
+        period_seconds    = 10
+        timeout_seconds   = 3
         http_get {
           path = "/"
           port = 8080
