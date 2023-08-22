@@ -17,8 +17,4 @@ module "authority" {
   support_awala = true
 
   depends_on = [time_sleep.wait_for_services]
-
-  # TODO: REMOVE
-  docker_image_name = "relaycorp/veraid-authority-tmp"
-  docker_image_tag  = "06"
 }
