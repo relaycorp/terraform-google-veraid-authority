@@ -5,7 +5,7 @@ variable "docker_image_name" {
 
 variable "docker_image_tag" {
   description = "The Docker image tag to deploy (highly recommended to set this explicitly)"
-  default     = "1.20.1"
+  default     = "1.20.3"
 }
 
 variable "instance_name" {
