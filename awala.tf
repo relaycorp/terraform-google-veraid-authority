@@ -27,6 +27,10 @@ module "awala" {
   queue_max_instance_request_concurrency = var.queue_max_instance_request_concurrency
   queue_min_instance_count               = var.queue_min_instance_count
 
+  queue_member_bundle_trigger_schedule_utc = var.queue_member_bundle_trigger_schedule_utc
+
+  awala_endpoint_outgoing_messages_topic = var.awala_endpoint_outgoing_messages_topic
+
   depends_on = [
     google_secret_manager_secret_iam_binding.mongodb_password_reader,
   ]

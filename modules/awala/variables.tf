@@ -34,3 +34,13 @@ variable "queue_max_instance_count" {
 variable "queue_cpu_limit" {
   type = number
 }
+
+variable "queue_member_bundle_trigger_schedule_utc" {
+  type = string
+}
+
+# ===== Awala Internet Endpoint
+
+variable "awala_endpoint_outgoing_messages_topic" {
+  type = string
+}
