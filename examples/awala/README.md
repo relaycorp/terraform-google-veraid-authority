@@ -19,7 +19,7 @@ For a simpler example without Awala, refer to [the `basic` example](../basic).
     You'll be redirected to [jwt.io](https://jwt.io) with a JWT in the URL. Copy the value of the `sub` claim.
 3. Initialise this module with the required variables. For example:
    ```hcl
-     module "awala-pong" {
+     module "veraid-authority-awala" {
        source  = "relaycorp/veraid-authority/google//examples/basic"
        version = "<INSERT VERSION HERE>"
    
