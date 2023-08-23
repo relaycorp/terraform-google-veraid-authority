@@ -36,3 +36,5 @@ This example doesn't support Awala. Refer to [the `awala` example](../awala) for
      }
    ```
 4. Run `terraform init`, followed by `terraform apply`.
+
+You're now ready to make requests to the VeraId Authority API. Refer to the [VeraId Authority documentation](https://docs.relaycorp.tech/veraid-authority/api) for more information.
