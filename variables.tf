@@ -145,6 +145,29 @@ variable "queue_member_bundle_trigger_schedule_utc" {
   default     = "0 9 * * *"
 }
 
+# ====== Awala Internet Endpoint backend
+
+variable "awala_backend_max_instance_request_concurrency" {
+  description = "The maximum number of concurrent requests per instance (for the Awala backend)"
+  type        = number
+  default     = 80
+}
+variable "awala_backend_min_instance_count" {
+  description = "The minimum number of instances (for the Awala backend)"
+  type        = number
+  default     = 1
+}
+variable "awala_backend_max_instance_count" {
+  description = "The maximum number of instances (for the Awala backend)"
+  type        = number
+  default     = 3
+}
+variable "awala_backend_cpu_limit" {
+  description = "The maximum vCPUs allocated to each instance of the Awala backend"
+  type        = number
+  default     = 2
+}
+
 # ===== Awala Internet Endpoint
 
 variable "support_awala" {

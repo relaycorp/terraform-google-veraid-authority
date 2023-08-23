@@ -29,6 +29,11 @@ module "awala" {
 
   queue_member_bundle_trigger_schedule_utc = var.queue_member_bundle_trigger_schedule_utc
 
+  awala_backend_cpu_limit                        = var.awala_backend_cpu_limit
+  awala_backend_max_instance_count               = var.awala_backend_max_instance_count
+  awala_backend_max_instance_request_concurrency = var.awala_backend_max_instance_request_concurrency
+  awala_backend_min_instance_count               = var.awala_backend_min_instance_count
+
   awala_endpoint_outgoing_messages_topic = var.awala_endpoint_outgoing_messages_topic
 
   depends_on = [

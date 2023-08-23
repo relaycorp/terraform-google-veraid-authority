@@ -39,6 +39,21 @@ variable "queue_member_bundle_trigger_schedule_utc" {
   type = string
 }
 
+# ===== Awala Internet Endpoint backend
+
+variable "awala_backend_max_instance_request_concurrency" {
+  type = number
+}
+variable "awala_backend_min_instance_count" {
+  type = number
+}
+variable "awala_backend_max_instance_count" {
+  type = number
+}
+variable "awala_backend_cpu_limit" {
+  type = number
+}
+
 # ===== Awala Internet Endpoint
 
 variable "awala_endpoint_outgoing_messages_topic" {
