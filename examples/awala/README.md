@@ -31,7 +31,7 @@ For a simpler example without Awala, refer to [the `basic` example](../basic).
        mongodbatlas_private_key = "your-private-key"
        mongodbatlas_project_id  = "your-project-id"
 
-       api_auth_audience = "your-oauth2-client-id"
+       api_auth_audience        = "your-oauth2-client-id"
        superadmin_email_address = "your-jwt-sub" # The "sub" claim of the JWT you got above
    
        awala_internet_address       = "your-domain-name" # e.g., "your-company.com"

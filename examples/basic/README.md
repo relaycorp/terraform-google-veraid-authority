@@ -31,7 +31,7 @@ This example doesn't support Awala. Refer to [the `awala` example](../awala) for
        mongodbatlas_private_key = "your-private-key"
        mongodbatlas_project_id  = "your-project-id"
 
-       api_auth_audience = "your-oauth2-client-id"
+       api_auth_audience        = "your-oauth2-client-id"
        superadmin_email_address = "your-jwt-sub" # The "sub" claim of the JWT you got above
      }
    ```
