@@ -33,6 +33,9 @@ For a simpler example without Awala, refer to [the `basic` example](../basic).
 
        api_auth_audience = "your-oauth2-client-id"
        superadmin_email_address = "your-jwt-sub" # The "sub" claim of the JWT you got above
+   
+       awala_internet_address       = "your-domain-name" # e.g., "your-company.com"
+       awala_internet_pohttp_domain = "your-pohttp-domain" # e.g., "pohttp.your-company.com
      }
    ```
 4. Run `terraform init`, followed by `terraform apply`.
