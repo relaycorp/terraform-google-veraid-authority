@@ -25,3 +25,12 @@ variable "api_auth_audience" {
 variable "superadmin_email_address" {
   description = "The email address of the superadmin"
 }
+
+# ===== Awala Internet Endpoint
+
+variable "awala_internet_address" {
+  description = "The Internet address for the Awala endpoint"
+}
+variable "awala_internet_pohttp_domain" {
+  description = "The domain name for the PoHTTP server in the Awala Internet Endpoint"
+}
