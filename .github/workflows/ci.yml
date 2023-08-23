@@ -9,14 +9,26 @@ jobs:
     uses: relaycorp/shared-workflows/.github/workflows/tfmodule-ci.yml@main
     with:
       terraform_version: 1.5.3
+  ci-module-awala:
+    uses: relaycorp/shared-workflows/.github/workflows/tfmodule-ci.yml@main
+    with:
+      path: modules/awala
+      terraform_version: 1.5.3
   ci-example:
     uses: relaycorp/shared-workflows/.github/workflows/tfmodule-ci.yml@main
     with:
       path: examples/basic
       terraform_version: 1.5.3
+  ci-example-awala:
+    uses: relaycorp/shared-workflows/.github/workflows/tfmodule-ci.yml@main
+    with:
+      path: examples/awala
+      terraform_version: 1.5.3
 
   release:
     needs:
       - ci-module
+      - ci-module-awala
       - ci-example
+      - ci-example-awala
     uses: relaycorp/shared-workflows/.github/workflows/tfmodule-release.yml@main

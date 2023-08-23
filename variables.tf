@@ -5,7 +5,7 @@ variable "docker_image_name" {
 
 variable "docker_image_tag" {
   description = "The Docker image tag to deploy (highly recommended to set this explicitly)"
-  default     = "1.20.3"
+  default     = "1.20.5"
 }
 
 variable "instance_name" {
@@ -114,4 +114,75 @@ variable "api_cpu_limit" {
   description = "The maximum vCPUs allocated to each instance of the API server"
   type        = number
   default     = 2
+}
+
+# ====== Background queue
+
+variable "queue_max_instance_request_concurrency" {
+  description = "The maximum number of concurrent requests per instance (for the queue server)"
+  type        = number
+  default     = 80
+}
+variable "queue_min_instance_count" {
+  description = "The minimum number of instances (for the queue server)"
+  type        = number
+  default     = 1
+}
+variable "queue_max_instance_count" {
+  description = "The maximum number of instances (for the queue server)"
+  type        = number
+  default     = 3
+}
+variable "queue_cpu_limit" {
+  description = "The maximum vCPUs allocated to each instance of the queue server"
+  type        = number
+  default     = 2
+}
+
+variable "queue_member_bundle_trigger_schedule_utc" {
+  description = "The CRON schedule for the member bundle trigger (UTC)"
+  type        = string
+  default     = "0 9 * * *"
+}
+
+# ====== Awala Internet Endpoint backend
+
+variable "awala_backend_max_instance_request_concurrency" {
+  description = "The maximum number of concurrent requests per instance (for the Awala backend)"
+  type        = number
+  default     = 80
+}
+variable "awala_backend_min_instance_count" {
+  description = "The minimum number of instances (for the Awala backend)"
+  type        = number
+  default     = 1
+}
+variable "awala_backend_max_instance_count" {
+  description = "The maximum number of instances (for the Awala backend)"
+  type        = number
+  default     = 3
+}
+variable "awala_backend_cpu_limit" {
+  description = "The maximum vCPUs allocated to each instance of the Awala backend"
+  type        = number
+  default     = 2
+}
+
+# ===== Awala Internet Endpoint
+
+variable "awala_endpoint_enabled" {
+  description = "Whether to enable Awala support"
+  type        = bool
+  default     = false
+}
+
+variable "awala_endpoint_outgoing_messages_topic" {
+  description = "The name of the Pub/Sub topic for outgoing messages"
+  type        = string
+  default     = null
+}
+variable "awala_endpoint_incoming_messages_topic" {
+  description = "The name of the Pub/Sub topic for incoming messages"
+  type        = string
+  default     = null
 }

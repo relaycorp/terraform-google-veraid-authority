@@ -1,22 +1,22 @@
-resource "google_cloud_run_v2_service" "api" {
-  name     = "authority-${var.instance_name}-api"
+resource "google_cloud_run_v2_service" "awala_backend" {
+  name     = "authority-${var.instance_name}-awala"
   location = var.region
-  ingress  = "INGRESS_TRAFFIC_ALL"
+  ingress  = "INGRESS_TRAFFIC_INTERNAL_ONLY"
 
   template {
     timeout = "300s"
 
-    service_account = google_service_account.main.email
+    service_account = var.service_account_email
 
     execution_environment = "EXECUTION_ENVIRONMENT_GEN2"
 
-    max_instance_request_concurrency = var.api_max_instance_request_concurrency
+    max_instance_request_concurrency = var.awala_backend_max_instance_request_concurrency
 
     containers {
-      name  = "api"
+      name  = "awala"
       image = "${var.docker_image_name}:${var.docker_image_tag}"
 
-      args = ["api"]
+      args = ["awala"]
 
       env {
         name  = "AUTHORITY_VERSION"
@@ -39,32 +39,9 @@ resource "google_cloud_run_v2_service" "api" {
         name = "MONGODB_PASSWORD"
         value_source {
           secret_key_ref {
-            secret  = google_secret_manager_secret.mongodb_password.id
+            secret  = var.mongodb_password_secret_id
             version = "latest"
           }
-        }
-      }
-
-      // Auth
-      env {
-        name  = "OAUTH2_JWKS_URL"
-        value = var.api_auth_jwks_url
-      }
-      env {
-        name  = "OAUTH2_TOKEN_ISSUER"
-        value = var.api_auth_token_issuer
-      }
-      env {
-        name  = "OAUTH2_TOKEN_AUDIENCE"
-        value = var.api_auth_audience
-      }
-
-      dynamic "env" {
-        for_each = var.superadmin_email_address != null ? [1] : []
-
-        content {
-          name  = "AUTHORITY_SUPERADMIN"
-          value = var.superadmin_email_address
         }
       }
 
@@ -79,7 +56,7 @@ resource "google_cloud_run_v2_service" "api" {
       }
       env {
         name  = "GCP_KMS_KEYRING"
-        value = google_kms_key_ring.main.name
+        value = var.kms_keyring
       }
       env {
         name  = "GCP_KMS_PROTECTION_LEVEL"
@@ -96,6 +73,15 @@ resource "google_cloud_run_v2_service" "api" {
       }
 
       env {
+        name  = "CE_TRANSPORT"
+        value = "google-pubsub"
+      }
+      env {
+        name  = "CE_CHANNEL_AWALA_OUTGOING_MESSAGES"
+        value = var.awala_endpoint_outgoing_messages_topic
+      }
+
+      env {
         name  = "REQUEST_ID_HEADER"
         value = "X-Cloud-Trace-Context"
       }
@@ -105,7 +91,7 @@ resource "google_cloud_run_v2_service" "api" {
         cpu_idle          = false
 
         limits = {
-          cpu    = var.api_cpu_limit
+          cpu    = var.awala_backend_cpu_limit
           memory = "512Mi"
         }
       }
@@ -133,20 +119,8 @@ resource "google_cloud_run_v2_service" "api" {
     }
 
     scaling {
-      min_instance_count = var.api_min_instance_count
-      max_instance_count = var.api_max_instance_count
+      min_instance_count = var.awala_backend_min_instance_count
+      max_instance_count = var.awala_backend_max_instance_count
     }
   }
-
-  depends_on = [
-    google_secret_manager_secret_iam_binding.mongodb_password_reader,
-  ]
-}
-
-resource "google_cloud_run_service_iam_member" "api_invoker" {
-  location = google_cloud_run_v2_service.api.location
-  project  = google_cloud_run_v2_service.api.project
-  service  = google_cloud_run_v2_service.api.name
-  role     = "roles/run.invoker"
-  member   = "allUsers"
 }
