@@ -60,11 +60,11 @@ resource "google_cloud_run_v2_service" "api" {
       }
 
       dynamic "env" {
-        for_each = var.superadmin_email_address != null ? [1] : []
+        for_each = var.superadmin_sub != null ? [1] : []
 
         content {
           name  = "AUTHORITY_SUPERADMIN"
-          value = var.superadmin_email_address
+          value = var.superadmin_sub
         }
       }
 

@@ -45,8 +45,8 @@ variable "api_auth_audience" {
   description = "The OAuth2 audience"
   type        = string
 }
-variable "superadmin_email_address" {
-  description = "The email address of the superadmin"
+variable "superadmin_sub" {
+  description = "The sub claim from the JWTs of the superadmin"
   default     = null
 }
 
