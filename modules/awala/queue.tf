@@ -81,7 +81,7 @@ resource "google_cloud_run_v2_service" "queue" {
         value = google_pubsub_topic.queue.id
       }
       env {
-        name  = "CE_CHANNEL_AWALA_OUTGOING_MESSAGES"
+        name = "CE_CHANNEL_AWALA_OUTGOING_MESSAGES"
         // TODO: DEFINE
         value = var.awala_endpoint_outgoing_messages_topic
       }
