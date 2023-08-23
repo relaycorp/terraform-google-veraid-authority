@@ -1,4 +1,4 @@
-# Basic deployment of VeraId Authority to GCP
+# Deployment of VeraId Authority with Awala support to GCP
 
 This Terraform module provides an example of how to deploy VeraId Authority to Google Cloud Platform (GCP) and MongoDB Atlas using serverless resources. It also assumes you'll be using Google as the identity provider.
 
