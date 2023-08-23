@@ -5,7 +5,7 @@ variable "docker_image_name" {
 
 variable "docker_image_tag" {
   description = "The Docker image tag to deploy (highly recommended to set this explicitly)"
-  default     = "1.20.4"
+  default     = "1.20.5"
 }
 
 variable "instance_name" {
@@ -139,10 +139,22 @@ variable "queue_cpu_limit" {
   default     = 2
 }
 
-# ====== Awala
+variable "queue_member_bundle_trigger_schedule_utc" {
+  description = "The CRON schedule for the member bundle trigger (UTC)"
+  type        = string
+  default     = "0 9 * * *"
+}
+
+# ===== Awala Internet Endpoint
 
 variable "support_awala" {
   description = "Whether to enable Awala support"
   type        = bool
   default     = false
+}
+
+variable "awala_endpoint_outgoing_messages_topic" {
+  description = "The name of the Pub/Sub topic for outgoing messages"
+  type        = string
+  default     = null
 }
