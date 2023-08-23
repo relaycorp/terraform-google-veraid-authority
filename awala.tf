@@ -1,5 +1,5 @@
 module "awala" {
-  count = var.support_awala ? 1 : 0
+  count = var.awala_endpoint_enabled ? 1 : 0
 
   source = "./modules/awala"
 
@@ -35,6 +35,7 @@ module "awala" {
   awala_backend_min_instance_count               = var.awala_backend_min_instance_count
 
   awala_endpoint_outgoing_messages_topic = var.awala_endpoint_outgoing_messages_topic
+  awala_endpoint_incoming_messages_topic = var.awala_endpoint_incoming_messages_topic
 
   depends_on = [
     google_secret_manager_secret_iam_binding.mongodb_password_reader,

@@ -170,7 +170,7 @@ variable "awala_backend_cpu_limit" {
 
 # ===== Awala Internet Endpoint
 
-variable "support_awala" {
+variable "awala_endpoint_enabled" {
   description = "Whether to enable Awala support"
   type        = bool
   default     = false
@@ -178,6 +178,11 @@ variable "support_awala" {
 
 variable "awala_endpoint_outgoing_messages_topic" {
   description = "The name of the Pub/Sub topic for outgoing messages"
+  type        = string
+  default     = null
+}
+variable "awala_endpoint_incoming_messages_topic" {
+  description = "The name of the Pub/Sub topic for incoming messages"
   type        = string
   default     = null
 }

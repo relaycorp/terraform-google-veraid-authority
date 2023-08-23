@@ -1,5 +1,5 @@
 resource "google_cloud_run_v2_service" "queue" {
-  name     = "authority-queue-${var.instance_name}"
+  name     = "authority-${var.instance_name}-queue"
   location = var.region
   ingress  = "INGRESS_TRAFFIC_INTERNAL_ONLY"
 
@@ -78,11 +78,10 @@ resource "google_cloud_run_v2_service" "queue" {
       }
       env {
         name  = "CE_CHANNEL_BACKGROUND_QUEUE"
-        value = google_pubsub_topic.queue.id
+        value = google_pubsub_topic.queue.name
       }
       env {
-        name = "CE_CHANNEL_AWALA_OUTGOING_MESSAGES"
-        // TODO: DEFINE
+        name  = "CE_CHANNEL_AWALA_OUTGOING_MESSAGES"
         value = var.awala_endpoint_outgoing_messages_topic
       }
 

@@ -56,6 +56,9 @@ variable "awala_backend_cpu_limit" {
 
 # ===== Awala Internet Endpoint
 
+variable "awala_endpoint_incoming_messages_topic" {
+  type = string
+}
 variable "awala_endpoint_outgoing_messages_topic" {
   type = string
 }

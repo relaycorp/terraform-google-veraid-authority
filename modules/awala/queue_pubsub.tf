@@ -21,7 +21,7 @@ resource "google_cloud_run_service_iam_binding" "queue_invoker" {
 }
 
 resource "google_pubsub_subscription" "queue" {
-  name  = "authority.${var.instance_name}.outgoing-messages"
+  name  = "authority.${var.instance_name}.queue"
   topic = google_pubsub_topic.queue.name
 
   ack_deadline_seconds       = 10

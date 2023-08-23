@@ -18,7 +18,9 @@ module "authority" {
   api_auth_audience        = var.api_auth_audience
   superadmin_email_address = var.superadmin_email_address
 
-  support_awala = true
+  awala_endpoint_enabled                 = true
+  awala_endpoint_outgoing_messages_topic = module.endpoint.pubsub_topics.outgoing_messages
+  awala_endpoint_incoming_messages_topic = module.endpoint.pubsub_topics.incoming_messages
 
   depends_on = [time_sleep.wait_for_services]
 }
