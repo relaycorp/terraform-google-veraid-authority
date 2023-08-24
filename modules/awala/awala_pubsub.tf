@@ -44,10 +44,10 @@ resource "google_pubsub_subscription" "awala_incoming_messages" {
   }
 }
 
-resource "google_pubsub_topic_iam_binding" "awala_outgoing_messages_publisher" {
+resource "google_pubsub_topic_iam_member" "awala_outgoing_messages_publisher" {
   project = var.project_id
 
-  topic   = var.awala_endpoint_outgoing_messages_topic
-  role    = "roles/pubsub.publisher"
-  members = ["serviceAccount:${var.service_account_email}", ]
+  topic  = var.awala_endpoint_outgoing_messages_topic
+  role   = "roles/pubsub.publisher"
+  member = "serviceAccount:${var.service_account_email}"
 }
