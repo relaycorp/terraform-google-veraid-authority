@@ -4,7 +4,7 @@ resource "google_cloud_run_v2_service" "api" {
   ingress  = "INGRESS_TRAFFIC_ALL"
 
   template {
-    timeout = "300s"
+    timeout = "5s"
 
     service_account = google_service_account.main.email
 
