@@ -20,6 +20,8 @@ resource "google_pubsub_subscription" "awala_incoming_messages" {
   name  = "authority-${var.instance_name}-awala.incoming-messages"
   topic = var.awala_endpoint_incoming_messages_topic
 
+  filter = "hasPrefix(attributes.datacontenttype, \"application/vnd.veraid-authority.\")"
+
   ack_deadline_seconds       = 10
   message_retention_duration = "259200s" # 3 days
   retain_acked_messages      = false
