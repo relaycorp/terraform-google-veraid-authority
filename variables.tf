@@ -110,11 +110,6 @@ variable "api_max_instance_count" {
   type        = number
   default     = 3
 }
-variable "api_cpu_limit" {
-  description = "The maximum vCPUs allocated to each instance of the API server"
-  type        = number
-  default     = 2
-}
 
 # ====== Background queue
 
@@ -132,11 +127,6 @@ variable "queue_max_instance_count" {
   description = "The maximum number of instances (for the queue server)"
   type        = number
   default     = 3
-}
-variable "queue_cpu_limit" {
-  description = "The maximum vCPUs allocated to each instance of the queue server"
-  type        = number
-  default     = 2
 }
 
 variable "queue_member_bundle_trigger_schedule_utc" {
@@ -161,11 +151,6 @@ variable "awala_backend_max_instance_count" {
   description = "The maximum number of instances (for the Awala backend)"
   type        = number
   default     = 3
-}
-variable "awala_backend_cpu_limit" {
-  description = "The maximum vCPUs allocated to each instance of the Awala backend"
-  type        = number
-  default     = 2
 }
 
 # ===== Awala Internet Endpoint

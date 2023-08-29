@@ -22,14 +22,12 @@ module "awala" {
   mongodb_user               = var.mongodb_user
   mongodb_password_secret_id = google_secret_manager_secret.mongodb_password.id
 
-  queue_cpu_limit                        = var.queue_cpu_limit
   queue_max_instance_count               = var.queue_max_instance_count
   queue_max_instance_request_concurrency = var.queue_max_instance_request_concurrency
   queue_min_instance_count               = var.queue_min_instance_count
 
   queue_member_bundle_trigger_schedule_utc = var.queue_member_bundle_trigger_schedule_utc
 
-  awala_backend_cpu_limit                        = var.awala_backend_cpu_limit
   awala_backend_max_instance_count               = var.awala_backend_max_instance_count
   awala_backend_max_instance_request_concurrency = var.awala_backend_max_instance_request_concurrency
   awala_backend_min_instance_count               = var.awala_backend_min_instance_count

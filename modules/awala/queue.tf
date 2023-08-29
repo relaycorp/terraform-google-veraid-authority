@@ -95,7 +95,7 @@ resource "google_cloud_run_v2_service" "queue" {
         cpu_idle          = false
 
         limits = {
-          cpu    = var.queue_cpu_limit
+          cpu    = 1
           memory = "512Mi"
         }
       }

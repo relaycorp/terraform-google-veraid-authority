@@ -31,9 +31,6 @@ variable "queue_min_instance_count" {
 variable "queue_max_instance_count" {
   type = number
 }
-variable "queue_cpu_limit" {
-  type = number
-}
 
 variable "queue_member_bundle_trigger_schedule_utc" {
   type = string
@@ -48,9 +45,6 @@ variable "awala_backend_min_instance_count" {
   type = number
 }
 variable "awala_backend_max_instance_count" {
-  type = number
-}
-variable "awala_backend_cpu_limit" {
   type = number
 }
 
