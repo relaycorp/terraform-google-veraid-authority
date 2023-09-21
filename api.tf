@@ -56,7 +56,7 @@ resource "google_cloud_run_v2_service" "api" {
       }
       env {
         name  = "OAUTH2_TOKEN_AUDIENCE"
-        value = var.api_auth_audience
+        value = join(",", var.api_auth_audiences)
       }
 
       dynamic "env" {

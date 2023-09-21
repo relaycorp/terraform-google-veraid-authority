@@ -5,7 +5,7 @@ variable "docker_image_name" {
 
 variable "docker_image_tag" {
   description = "The Docker image tag to deploy (highly recommended to set this explicitly)"
-  default     = "1.20.5"
+  default     = "1.22.0"
 }
 
 variable "instance_name" {
@@ -41,9 +41,9 @@ variable "api_auth_token_issuer" {
   type        = string
   default     = "https://accounts.google.com"
 }
-variable "api_auth_audience" {
-  description = "The OAuth2 audience"
-  type        = string
+variable "api_auth_audiences" {
+  description = "The OAuth2 audiences"
+  type        = list(string)
 }
 variable "superadmin_sub" {
   description = "The sub claim from the JWTs of the superadmin"

@@ -15,8 +15,8 @@ module "authority" {
   mongodb_user     = mongodbatlas_database_user.authority.username
   mongodb_password = random_password.mongodb_authority_user_password.result
 
-  api_auth_audience = var.api_auth_audience
-  superadmin_sub    = var.superadmin_sub
+  api_auth_audiences = [var.api_auth_audience]
+  superadmin_sub     = var.superadmin_sub
 
   awala_endpoint_enabled                 = true
   awala_endpoint_outgoing_messages_topic = module.endpoint.pubsub_topics.outgoing_messages
