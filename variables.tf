@@ -45,8 +45,8 @@ variable "api_auth_audiences" {
   description = "The OAuth2 audiences"
   type        = list(string)
 }
-variable "superadmin_sub" {
-  description = "The sub claim from the JWTs of the superadmin"
+variable "superadmin_email" {
+  description = "The email address of the superadmin ('email' claim in JWT)"
   default     = null
 }
 
