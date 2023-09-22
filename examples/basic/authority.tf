@@ -16,7 +16,7 @@ module "authority" {
   mongodb_password = random_password.mongodb_authority_user_password.result
 
   api_auth_audiences = [var.api_auth_audience]
-  superadmin_sub     = var.superadmin_sub
+  superadmin_email   = var.superadmin_email
 
   depends_on = [time_sleep.wait_for_services]
 }
