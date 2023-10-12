@@ -80,6 +80,10 @@ resource "google_cloud_run_v2_service" "awala_backend" {
         name  = "CE_CHANNEL_AWALA_OUTGOING_MESSAGES"
         value = var.awala_endpoint_outgoing_messages_topic
       }
+      env {
+        name  = "CE_CHANNEL_BACKGROUND_QUEUE"
+        value = google_pubsub_topic.queue.name
+      }
 
       env {
         name  = "REQUEST_ID_HEADER"

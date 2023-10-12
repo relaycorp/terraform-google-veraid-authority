@@ -51,3 +51,11 @@ resource "google_pubsub_topic_iam_member" "awala_outgoing_messages_publisher" {
   role   = "roles/pubsub.publisher"
   member = "serviceAccount:${var.service_account_email}"
 }
+
+resource "google_pubsub_topic_iam_member" "awala_queue_publisher" {
+  project = var.project_id
+
+  topic  = google_pubsub_topic.queue.name
+  role   = "roles/pubsub.publisher"
+  member = "serviceAccount:${var.service_account_email}"
+}
